@@ -14,6 +14,11 @@ from rest_framework.permissions import IsAuthenticated
 #from .permissions import IsAuthorOrReadOnly
 import json
 
+def index(request):
+    return render(request,'index.html')
+
+
+
 
 def ws(request):
     paths={
@@ -51,6 +56,32 @@ def le_topic(request,topic):
         return JsonResponse ([], safe=False)
 
 
+@api_view(['GET','POST'])
+def le_topic(request,topic):
+    
+    if request.method=='GET':
+        with open('data.json', 'r') as file:
+            data = json.load(file)
+
+        try: 
+            return Response (data['topics'][str(topic)])
+        except :#topic.DoesNotExists:
+            return Response ([])
+
+""" if request.method=='POST': 
+        with open('data.json', 'r') as file:
+            data = json.load(file)
+        if request.data.
+        data['topics'][str(topic)]  
+"""
 
 
 
+@api_view(['GET'])
+def topics(request):
+    with open('data.json', 'r') as file:
+        data = json.load(file)
+    # GET
+    if request.method == 'GET':
+        topics=list(data['topics'].keys()) 
+        return Response(topics)

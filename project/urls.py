@@ -20,6 +20,8 @@ from application1 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('', views.index),
+
     path('ws/', views.ws),
 
     path('ws/topics', views.topics),

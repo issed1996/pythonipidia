@@ -43,12 +43,11 @@ data={
         "exemple": ["url"]
       }
 },
-'annuaire':[]
+'annuaire':['127.0.0.1:8000/']
 }
 
 
 
-"""with open('data.json', 'w') as jsonfile:
+with open('data.json', 'w') as jsonfile:
     json.dump(data, jsonfile)
-"""
-print(list(data.keys()))
+
