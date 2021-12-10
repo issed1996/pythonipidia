@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to FlaskAPI {% endblock %}</h1>
+    {% for path in paths %}
+        <a href="#">
+            <h2>{{ path }}</h2>
+        </a>
+        
+        <hr>
+    {% endfor %}
+{% endblock %}
